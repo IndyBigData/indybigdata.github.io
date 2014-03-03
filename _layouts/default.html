@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ page.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" media="screen">
+  <link href="/css/pygments.css" rel="stylesheet" media="screen">
+  <style type="text/css">
+    .tag-footer {
+      padding-top: 25px;
+    }
+    .blog-header {
+      margin-bottom: 0;
+      padding: 20px;
+    }
+    table th, table td {
+      padding: 4px 5px;
+    }
+    table tbody > tr:nth-child(odd) > td, table tbody > tr:nth-child(odd) > th {
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero-unit blog-header">
+    <h1>Indy Big Data Meetup</h1>
+    <p>Big Data meetup focused on helping current and potential big data users share their problems, solutions, and experiences with tools like Hadoop, HBase, Cassandra, etc. and building large-scale data processing systems.</p>
+  </div>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span9">
+        {% if page.path != "index.html" %}
+        <h2>{{ page.title }}</h2>
+        <h6>{{ page.date | date_to_long_string }}</h6>
+        {% endif %}
+        {{ content }}
+        
+        {% if page.path != "index.html" %}
+        <p class="tag-footer">
+        <strong>Tagged:</strong> {{ page.tags | array_to_sentence_string }}
+        </p>
+
+        <div class="well">
+          <a class="socialite twitter-share" href="http://twitter.com/share" data-url="http://indybigdata.github.io{{ page.url }}">
+            Share on Twitter
+          </a>
+          <a class="socialite facebook-like" href="http://www.facebook.com/sharer.php?u=http://indybigdata.github.io/{{ page.url }}" data-href="http://indybigdata.github.io{{ page.url }}">
+            Like on Facebook
+          </a>
+          <a class="socialite googleplus-one" href="https://plus.google.com/share?url=http%3A%2F%2Findybigdata.github.io{{ page.url | uri_escape }}" data-href="http://indybigdata.github.io{{ page.url }}">
+            +1 on Google+
+          </a>
+        </div>
+        {% endif %}
+
+      </div>
+      <div class="span3">
+        <h3>Meetups we recommend:</h3>
+        <ul>
+          <li>
+            <a href="http://www.meetup.com/dsindy/">Data Science Indy</a>
+          </li>
+          <li>
+            <a href="http://www.meetup.com/IndyWebPerf/">Indianapolis Web Performance Group</a>
+          </li>
+          <li>
+            <a href="http://indysa.org/">Indy Software Artisans</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="/js/socialite.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  Socialite.load();
+});
+</script>
+</body>
+</html>
